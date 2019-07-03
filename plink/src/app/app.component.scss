@@ -1,0 +1,32 @@
+::ng-deep mat-tab-label-container {
+
+}
+/*  ajusta */
+::ng-deep .mat-tab-labels {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 140px;
+  font-size: 1.5em;
+}
+
+::ng-deep .mat-ink-bar {
+  width: 50%;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #0076FF;
+  height: 10px;
+  width: 50%;
+}
+
+::ng-deep .mat-tab-label mat-ripple ng-star-inserted mat-tab-label-active {
+  width: 100%;
+}
+
+::ng-deep .mat-tab-label {
+  font-size: 1.1em;
+  color:#4A4A4A;
+  font-weight: bold;
+  width: 100%;
+}

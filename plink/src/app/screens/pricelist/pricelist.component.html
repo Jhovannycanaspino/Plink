@@ -1,0 +1,24 @@
+<div class="container-money">
+<div class="header-prices">
+  <div class="div-item"><p class="title">Nombre</p></div>
+  <div class="div-item"><p class="title">Precio</p></div>
+  <div class="div-item divCenter"><p class="title">Criptomoneda</p></div>
+  <div class="div-item divEnd"><p class="title">Convertir</p></div>
+</div>
+</div>
+<div class="div-decorator">
+<div class="div-money" *ngFor="let money of moneys">
+  <div class="div-item">
+    <p class="name-money">{{money.name}}</p>
+  </div>
+  <div class="div-item"> 
+    <span class="price">{{money.price | currency}}</span>
+  </div>
+  <div class="div-item divCenter">
+    <span [ngClass]="{'greenCircle': money.crypto==1, 'redCircle': money.crypto==0 }">{{money.crypto==1 ? "SI" : "NO"}}</span>
+  </div>
+  <div class="div-item divEnd">
+    <input class="btnConvert" type="button" />
+  </div>
+</div>
+</div>

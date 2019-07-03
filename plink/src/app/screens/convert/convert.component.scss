@@ -1,0 +1,100 @@
+@import '~src/styles/colors';
+
+.container-convert {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.card-convert {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40%;
+  text-align: center;
+  position: relative;
+
+  .title {
+    font-size: 2.0em;
+    color: $ligth-gray;
+    letter-spacing: 2px;
+    margin: 10px 0;
+  }
+  .subtitle {
+    font-size: 1.5em;
+    color: $gray-soft;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+  }
+
+  .inputForm {
+    background: transparent;
+    border: 1px solid $grey;
+    border-radius: 30px;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    padding: 15px;
+    text-align: center;
+    width: 90%;
+  }
+
+  .inputFormDisabled {
+    background-color: $gray-soft;
+  }
+
+.divInput {
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+    &::before {
+      content: "$";
+      left: 45px;
+      color:$grey;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5em;
+    }
+    .price {
+      margin-bottom: 0;
+    }
+}
+
+.btnRevert {
+  background: url('src/assets/exchange.png') no-repeat;
+  background-size: 40px 40px;
+  content: "";
+  right: -30px;
+  color: #C4C4C4;
+  position: absolute;
+  top: 58%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 1.5em;
+  width: 40px;
+  height: 40px;
+
+}
+.divInputSelect {
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
+  &::before {
+    background: url('src/assets/down-arrow.png') no-repeat;
+    background-size: 20px 20px;
+    content: "";
+    right: 45px;
+    color: #C4C4C4;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    width: 20px;
+    height: 20px;
+  }
+  .price {
+    margin-bottom: 0;
+  }
+}
+}
