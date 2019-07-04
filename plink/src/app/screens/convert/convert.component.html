@@ -1,18 +1,18 @@
 <div class="container-convert">
 <div class="card-convert">
 <form [formGroup]="cForm" (ngSubmit)="convert(cForm.value)">
-    <h1 class="title">Realizar cambio</h1>
-    <h2 class="subtitle">seleccione las monedas</h2>
+    <h1 class="title">{{'Realizar cambio' | translate}}</h1>
+    <h2 class="subtitle">{{'Seleccione las monedas' | translate}}</h2>
     <div class="divInput">
-      <input class="inputForm price" type="text" formControlName="amount" mask="comma_separator.2" [(ngModel)]='amountValue'  />
+      <input class="inputForm price" (input)="calculate()" type="text" formControlName="amount" mask="comma_separator.2" [(ngModel)]='amountValue'  />
     </div>
     <div class="divInputSelect">
-      <select class="inputForm price" (change)="calculate()" formControlName="from" [(ngModel)]='from'>
+      <select class="inputForm price select" (change)="calculate()" [(ngModel)]='from' formControlName="from">
             <option *ngFor='let money of moneys' value="{{money.id_currency}}">{{money.id_currency}}</option>
           </select>
     </div>
        <div class="divInputSelect">
-          <select class="inputForm price" (change)="calculate()" formControlName="to" [(ngModel)]='to'>
+          <select class="inputForm price select" (change)="calculate()" formControlName="to" [(ngModel)]='to'>
               <option *ngFor='let money of moneys' value="{{money.id_currency}}">{{money.id_currency}}</option>
           </select>
        </div> 

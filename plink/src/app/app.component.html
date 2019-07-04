@@ -1,9 +1,8 @@
-<mat-tab-group color="primary"  #tabGroup>
-    <mat-tab label="REALIZAR CAMBIO">
+<mat-tab-group color="primary" [selectedIndex]="tabIndex.value" (selectedIndexChange)="tabIndex.setValue($event)"  #tabGroup>
+    <mat-tab label="{{'REALIZAR CAMBIO' | translate }}">
       <app-convert></app-convert>
     </mat-tab>
-    <mat-tab label="LISTADO DE MONEDAS">
+    <mat-tab label="{{'LISTADO DE MONEDAS' | translate }}">
       <app-pricelist></app-pricelist>
     </mat-tab>
   </mat-tab-group>
-

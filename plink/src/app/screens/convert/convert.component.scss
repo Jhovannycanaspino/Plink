@@ -4,27 +4,28 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-top: 80px;
 }
 
 .card-convert {
-  display: flex;
   align-items: center;
+  display: flex;
   flex-direction: column;
-  width: 40%;
-  text-align: center;
   position: relative;
-
+  text-align: center;
+  width: 40%;
   .title {
-    font-size: 2.0em;
     color: $ligth-gray;
+    font-size: 2.0em;
     letter-spacing: 2px;
     margin: 10px 0;
   }
   .subtitle {
-    font-size: 1.5em;
     color: $gray-soft;
+    font-size: 1.5em;
     letter-spacing: 2px;
     margin-bottom: 30px;
+    width: 100%;
   }
 
   .inputForm {
@@ -43,17 +44,17 @@
   }
 
 .divInput {
-    position: relative;
     margin-bottom: 30px;
+    position: relative;
     width: 100%;
     &::before {
-      content: "$";
-      left: 45px;
       color:$grey;
+      content: "$";
+      font-size: 1.5em;
+      left: 45px;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.5em;
     }
     .price {
       margin-bottom: 0;
@@ -63,38 +64,40 @@
 .btnRevert {
   background: url('src/assets/exchange.png') no-repeat;
   background-size: 40px 40px;
+  color: grey;
   content: "";
-  right: -30px;
-  color: #C4C4C4;
-  position: absolute;
-  top: 58%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
   font-size: 1.5em;
-  width: 40px;
   height: 40px;
-
+  position: absolute;
+  right: -30px;
+  top: 58%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  width: 40px;
 }
 .divInputSelect {
-  position: relative;
   margin-bottom: 30px;
+  position: relative;
   width: 100%;
   &::before {
     background: url('src/assets/down-arrow.png') no-repeat;
     background-size: 20px 20px;
+    color: grey;
     content: "";
-    right: 45px;
-    color: #C4C4C4;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
     font-size: 1.5em;
-    width: 20px;
     height: 20px;
+    position: absolute;
+    right: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    width: 20px;
   }
   .price {
     margin-bottom: 0;
+  }
+  .select {
+    text-align-last:center;
   }
 }
 }

@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { NumberValidators } from 'src/app/components/number.validatos';
 import { IMoney } from 'src/app/models/IMoney.model';
 import { CryptoService } from 'src/app/services/crypto-service.service';
+import { ConvertService } from 'src/app/services/convert.service';
 
 @Component({
   selector: 'app-convert',
@@ -12,50 +13,61 @@ import { CryptoService } from 'src/app/services/crypto-service.service';
 export class ConvertComponent implements OnInit {
   cForm: any;
   amountValue = '0.00';
-  from = 'BTC';
+  from: string;
   to = 'USD';
   quantity = 0;
   moneys: IMoney[] = [];
-  constructor(fb: FormBuilder, private cryptoService: CryptoService) {
+  constructor(fb: FormBuilder, private cryptoService: CryptoService, private convertService: ConvertService) {
     this.cForm = fb.group({
       amount: [null, Validators.compose([Validators.required, Validators.min(0), NumberValidators.minimum(1)])],
       from: [null, Validators.required],
       to: [null, Validators.required],
       change: [null]
     });
+
   }
 
   ngOnInit() {
+    this.convertService.customMessage.subscribe(result => {
+      this.from = result;
+      this.amountValue = '1';
+      this.convert(1, this.from, result);
+    });
+
     this.cryptoService.getPrices()
     .subscribe(result => {
       this.moneys = result.prices;
+      this.moneys.push(
+        {
+          id_currency: 'BTC',
+          name: 'Bitcoin',
+          price: 1,
+          crypto: 1
+        }
+      );
     } );
-    this.moneys.push(
-      {
-        id_currency: 'BTC',
-        name: 'Bitcoin',
-        price: 1,
-        crypto: 1
-      }
-    );
+    this.from =  'BTC';
+    this.moneys.sort();
   }
 
   convert(amount: number, from: string, to: string) {
     this.cryptoService.convert(amount, from, to)
     .subscribe(result => {
-      this.quantity = result.to_quantity;
+      if (result.success) {
+        this.quantity = result.to_quantity;
+      }
     });
   }
 
   revert() {
     const from =  this.from;
-    console.log(from);
     const to = this.to;
-    console.log(to);
     const amount = this.cForm.get('amount').value;
     this.cForm.get('from').setValue(to);
     this.cForm.get('to').setValue(from);
-    this.convert(amount, from, to);
+    const tonew = this.to;
+    const fromnew = this.from;
+    this.convert(amount, fromnew, tonew);
   }
 
   calculate() {

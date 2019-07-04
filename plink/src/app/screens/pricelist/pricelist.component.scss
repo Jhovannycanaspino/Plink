@@ -4,25 +4,27 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-top: 80px;
 }
 
 .header-prices {
+  align-items: center;
   background-color: $white;
   box-shadow: 5px 5px 5px 0 $grey;
-  align-items: center;
   display: flex;
-  margin-bottom: 20px;
-  width: 80%;
   height: 80px;
+  margin-bottom: 20px;
   padding: 10px 50px 10px 10px;
+  width: 80%;
 }
 
 .btnConvert {
   background: url('src/assets/shuffle.png') no-repeat;
   background-size: 40px 40px;
-  width: 40px;
   height: 40px;
+  width: 40px;
 }
+
 .greenCircle {
   color:$green-soft;
   font-size: 1em;
@@ -30,14 +32,15 @@
   position: relative;
   &::before {
     background-color: $green-soft;
+    border-radius: 50%;
     content: '';
     height: 17px;
-    width: 17px;
     position: absolute;
     right: 30px;
-    border-radius: 50%;
+    width: 17px;
   }
 }
+
 .redCircle {
   color: $red;
   font-size: 1em;
@@ -45,12 +48,12 @@
   position: relative;
   &::before {
     background-color: $red;
+    border-radius: 50%;
     content: '';
     height: 17px;
-    width: 17px;
     position: absolute;
     right: 30px;
-    border-radius: 50%;
+    width: 17px;
   }
 }
 .div-item {
@@ -63,10 +66,9 @@
   }
 }
 .div-decorator {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-
 }
 
 .divCenter {
@@ -76,16 +78,15 @@
   text-align: end;
 }
 .div-money {
-  background-color: $white;
   align-items: center;
-  display: flex;
-  width: 80%;
-  height: 70px;
+  background-color: $white;
   border: 2px solid $gray-soft;
-  margin-bottom: 15px;
   border-radius: 5px;
+  display: flex;
+  height: 70px;
+  margin-bottom: 15px;
   padding: 10px 50px 10px 10px;
-
+  width: 80%;
   .name-money {
     color: $ligth-gray;
     font-size: 1em;
@@ -95,4 +96,7 @@
     font-size: 1.5em;
     font-weight: bold;
   }
+}
+.divScroll {
+  overflow: auto;
 }

@@ -1,13 +1,11 @@
-::ng-deep mat-tab-label-container {
+@import '~src/styles/colors';
 
-}
-/*  ajusta */
 ::ng-deep .mat-tab-labels {
   align-items: center;
+  font-size: 1.5em;
+  height: 140px;
   justify-content: center;
   width: 100%;
-  height: 140px;
-  font-size: 1.5em;
 }
 
 ::ng-deep .mat-ink-bar {
@@ -15,7 +13,7 @@
 }
 
 ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-  background-color: #0076FF;
+  background-color:$blue-tab;
   height: 10px;
   width: 50%;
 }
@@ -24,9 +22,15 @@
   width: 100%;
 }
 
+::ng-deep .mat-tab-label-active {
+  &>.mat-tab-label-content {
+    color:$blue-tab;
+  }
+}
+
 ::ng-deep .mat-tab-label {
+  color: $grey-tab;
   font-size: 1.1em;
-  color:#4A4A4A;
   font-weight: bold;
   width: 100%;
 }
