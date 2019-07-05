@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IMoney } from 'src/app/models/IMoney.model';
 import { CryptoService } from 'src/app/services/crypto-service.service';
+import { ConvertService } from 'src/app/services/convert.service';
 
 @Component({
   selector: 'app-pricelist',
@@ -9,18 +10,27 @@ import { CryptoService } from 'src/app/services/crypto-service.service';
 })
 export class PricelistComponent implements OnInit {
 
-  moneys: IMoney;
-  constructor(private cryptoService: CryptoService) { }
+  moneys: IMoney[] = [];
+  visibleMoney: IMoney[] = [];
+  actualSize = 20;
+  INCREMENT = 20;
+  constructor(private cryptoService: CryptoService, private convertService: ConvertService) { }
 
   ngOnInit() {
     this.cryptoService.getPrices()
     .subscribe(result => {
       this.moneys = result.prices;
+      this.visibleMoney = this.moneys.slice(0, this.actualSize);
     }
     , error => console.log(error));
   }
 
-  convert() {
-    console.log('apretado');
+  convert(currency: string) {
+    this.convertService.changeMessage(currency);
+  }
+
+  onScroll() {
+    this.visibleMoney = this.visibleMoney.concat(this.moneys.slice(this.actualSize, this.actualSize + this.INCREMENT));
+    this.actualSize += this.INCREMENT;
   }
 }

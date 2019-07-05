@@ -1,0 +1,10 @@
+{
+  "name": "Nombre",
+  "price": "Precio",
+  "criptomoney": "Criptomoneda",
+  "convert": "Convertir",
+  "makeChange": "Realizar cambio",
+  "selectCurrencies": "Seleccione las monedas",
+  "makeChangeUppercase": "REALIZAR CAMBIO",
+  "currencyList": "LISTADO DE MONEDAS"
+}

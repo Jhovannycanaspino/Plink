@@ -1,26 +1,23 @@
 <div class="container-convert">
-<div class="card-convert">
-<form [formGroup]="cForm" (ngSubmit)="convert(cForm.value)">
-    <h1 class="title">Realizar cambio</h1>
-    <h2 class="subtitle">seleccione las monedas</h2>
-    <div class="divInput">
-      <input class="inputForm price" type="text" formControlName="amount" mask="comma_separator.2" [(ngModel)]='amountValue'  />
+  <h1 class="title">{{'makeChange' | translate}}</h1>
+  <h2 class="subtitle">{{'selectCurrencies' | translate}}</h2>
+  <form class="card-convert" [formGroup]="cForm" (ngSubmit)="convert(cForm.value)">
+    <div class="input-wrapper">
+      <input class="form-input price" (input)="calculate()" type="text" formControlName="amount" mask="comma_separator.2" [(ngModel)]='amountValue'  />
     </div>
-    <div class="divInputSelect">
-      <select class="inputForm price" (change)="calculate()" formControlName="from" [(ngModel)]='from'>
-            <option *ngFor='let money of moneys' value="{{money.id_currency}}">{{money.id_currency}}</option>
-          </select>
+    <div class="select-wrapper">
+      <select class="form-input price select" (change)="calculate()" [(ngModel)]='from' formControlName="from">
+        <option *ngFor='let money of moneys' value="{{money.id_currency}}">{{money.id_currency}}</option>
+      </select>
     </div>
-       <div class="divInputSelect">
-          <select class="inputForm price" (change)="calculate()" formControlName="to" [(ngModel)]='to'>
-              <option *ngFor='let money of moneys' value="{{money.id_currency}}">{{money.id_currency}}</option>
-          </select>
-       </div> 
-       
-    <div class="divInput">
-        <input type="text" class="inputForm price inputFormDisabled" disabled=true [value]="quantity | mask: 'comma_separator.2'" />
+    <div class="select-wrapper">
+      <select class="form-input price select" (change)="calculate()" formControlName="to" [(ngModel)]='to'>
+        <option *ngFor='let money of moneys' value="{{money.id_currency}}">{{money.id_currency}}</option>
+      </select>
+    </div> 
+    <div class="input-wrapper">
+      <input type="text" class="form-input price" disabled [value]="quantity | mask: 'comma_separator.2'" />
     </div>
-      <button class="btnRevert" (click)='revert()' ></button>
-</form>
-</div>
+    <button class="swap-btn" (click)='revert()' ></button>
+  </form>
 </div>

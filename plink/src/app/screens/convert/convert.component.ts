@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { NumberValidators } from 'src/app/components/number.validatos';
+import { NumberValidator } from 'src/app/components/number.validator';
 import { IMoney } from 'src/app/models/IMoney.model';
 import { CryptoService } from 'src/app/services/crypto-service.service';
+import { ConvertService } from 'src/app/services/convert.service';
 
 @Component({
   selector: 'app-convert',
@@ -12,13 +13,13 @@ import { CryptoService } from 'src/app/services/crypto-service.service';
 export class ConvertComponent implements OnInit {
   cForm: any;
   amountValue = '0.00';
-  from = 'BTC';
+  from: string;
   to = 'USD';
   quantity = 0;
   moneys: IMoney[] = [];
-  constructor(fb: FormBuilder, private cryptoService: CryptoService) {
+  constructor(fb: FormBuilder, private cryptoService: CryptoService, private convertService: ConvertService) {
     this.cForm = fb.group({
-      amount: [null, Validators.compose([Validators.required, Validators.min(0), NumberValidators.minimum(1)])],
+      amount: [null, Validators.compose([Validators.required, Validators.min(0), NumberValidator.minimum(1)])],
       from: [null, Validators.required],
       to: [null, Validators.required],
       change: [null]
@@ -26,36 +27,45 @@ export class ConvertComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.convertService.customMessage.subscribe(result => {
+      this.amountValue = '1';
+      this.from = 'BTC';
+      this.to = result;
+      this.convert(0, this.from, result);
+    });
+
     this.cryptoService.getPrices()
     .subscribe(result => {
       this.moneys = result.prices;
+      this.moneys.push(
+        {
+          id_currency: 'BTC',
+          name: 'Bitcoin',
+          price: 1,
+          crypto: 1
+        }
+      );
     } );
-    this.moneys.push(
-      {
-        id_currency: 'BTC',
-        name: 'Bitcoin',
-        price: 1,
-        crypto: 1
-      }
-    );
+    this.from =  'BTC';
+    this.moneys.sort();
   }
 
   convert(amount: number, from: string, to: string) {
     this.cryptoService.convert(amount, from, to)
     .subscribe(result => {
-      this.quantity = result.to_quantity;
+      if (result.success) {
+        this.quantity = result.to_quantity;
+      }
     });
   }
 
   revert() {
     const from =  this.from;
-    console.log(from);
     const to = this.to;
-    console.log(to);
     const amount = this.cForm.get('amount').value;
     this.cForm.get('from').setValue(to);
     this.cForm.get('to').setValue(from);
-    this.convert(amount, from, to);
+    this.convert(amount, this.cForm.get('from').value, this.cForm.get('to').value);
   }
 
   calculate() {
