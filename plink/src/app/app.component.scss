@@ -5,9 +5,16 @@
   border: 1px solid $grey;
   border-radius: 5px;
   height: 800px;
-  margin: 100px auto;
   max-width: 1200px;
   width: 100%;
+}
+
+.price-list {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  padding: 20px 40px 0;
 }
 
 ::ng-deep .mat-tab-labels {
@@ -17,6 +24,10 @@
   justify-content: center;
   padding: 25px 0;
   width: 100%;
+}
+
+::ng-deep .mat-tab-body-content.ng-trigger.ng-trigger-translateTab {
+  overflow: hidden;
 }
 
 ::ng-deep .mat-ink-bar {

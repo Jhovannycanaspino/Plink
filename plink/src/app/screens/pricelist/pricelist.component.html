@@ -1,29 +1,29 @@
-<div class="container-money">
 <div class="header-prices">
-  <div class="div-item"><p class="title">{{'name' | translate}}</p></div>
-  <div class="div-item"><p class="title">{{'price' | translate}}</p></div>
-  <div class="div-item divCenter"><p class="title">{{'criptomoney' | translate}}</p></div>
-  <div class="div-item divEnd"><p class="title">{{'convert' | translate}}</p></div>
+  <p class="item title">{{'name' | translate}}</p>
+  <p class="item title">{{'price' | translate}}</p>
+  <p class="title item center">{{'criptomoney' | translate}}</p>
+  <p class="title item end">{{'convert' | translate}}</p>
 </div>
-</div>
-<div class="divScroll" infiniteScroll
-[infiniteScrollDistance]="2"
-[infiniteScrollThrottle]="700"
-(scrolled)="onScroll()">
-<div class="div-decorator">
-<div class="div-money" *ngFor="let money of visibleMoney">
-  <div class="div-item">
-    <p class="name-money">{{money.name}}</p>
+<div
+  class="scroll decorator"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="700"
+  (scrolled)="onScroll()"
+  [scrollWindow]="false"
+>
+  <div class="money" *ngFor="let money of visibleMoney">
+    <div class="item">
+      <p class="name-money">{{money.name}}</p>
+    </div>
+    <div class="item"> 
+      <span class="price">{{money.price | currency}}</span>
+    </div>
+    <div class="item center">
+      <span [ngClass]="{'greenCircle': money.crypto==1, 'redCircle': money.crypto==0 }">{{money.crypto==1 ? "SI" : "NO"}}</span>
+    </div>
+    <div class="item end">
+      <input class="btnConvert" type="button" (click)='convert(money.id_currency)' />
+    </div>
   </div>
-  <div class="div-item"> 
-    <span class="price">{{money.price | currency}}</span>
-  </div>
-  <div class="div-item divCenter">
-    <span [ngClass]="{'greenCircle': money.crypto==1, 'redCircle': money.crypto==0 }">{{money.crypto==1 ? "SI" : "NO"}}</span>
-  </div>
-  <div class="div-item divEnd">
-    <input class="btnConvert" type="button" (click)='convert(money.id_currency)' />
-  </div>
-</div>
-</div>
 </div>

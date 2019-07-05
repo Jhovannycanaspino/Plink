@@ -19,6 +19,6 @@ export class CryptoService {
   }
 
   convert(cant: number, coinFrom: string, coinDest: string): any {
-    return this.http.get<IConvert>(`${environment.API_COIN}${this.ROUTE_CONVERT}${cant}${'&from='}${coinFrom}${'&to='}${coinDest}`);
+    return this.http.get<IConvert>(`${environment.API_COIN}${this.ROUTE_CONVERT}${cant}&from=${coinFrom}&to=${coinDest}`);
   }
 }

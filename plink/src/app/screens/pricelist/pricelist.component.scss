@@ -1,21 +1,13 @@
 @import '~src/styles/colors';
 
-.container-money {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-
 .header-prices {
   align-items: center;
   background-color: $white;
-  box-shadow: 5px 5px 5px 0 $grey;
+  box-shadow: 0px 4px 4px -1px $grey;
   display: flex;
   height: 80px;
   margin-bottom: 20px;
   padding: 10px 50px 10px 10px;
-  width: 80%;
 }
 
 .btnConvert {
@@ -30,6 +22,7 @@
   font-size: 1em;
   min-width: 25px;
   position: relative;
+
   &::before {
     background-color: $green-soft;
     border-radius: 50%;
@@ -38,7 +31,6 @@
     position: absolute;
     right: calc(100% + 10px);
     width: 17px;
-
   }
 }
 
@@ -47,6 +39,7 @@
   font-size: 1em;
   min-width: 25px;
   position: relative;
+
   &::before {
     background-color: $red;
     border-radius: 50%;
@@ -57,27 +50,32 @@
     width: 17px;
   }
 }
-.div-item {
+
+.item {
   align-items: center;
   flex: 1 1 0;
+
   .title {
     color: $ligth-gray;
     font-size: 18px;
   }
 }
-.div-decorator {
+
+.decorator {
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 
-.divCenter {
+.center {
   text-align: center;
 }
-.divEnd {
+
+.end {
   text-align: end;
 }
-.div-money {
+
+.money {
   align-items: center;
   background-color: $white;
   border: 2px solid $gray-soft;
@@ -86,17 +84,21 @@
   height: 70px;
   margin-bottom: 15px;
   padding: 10px 50px 10px 10px;
-  width: 80%;
+  width: 100%;
+
   .name-money {
     color: $ligth-gray;
     font-size: 1em;
   }
+
   .price {
     color: $blue-solid;
     font-size: 1.5em;
     font-weight: bold;
   }
 }
-.divScroll {
+
+.scroll {
+  height: 100%;
   overflow: auto;
 }

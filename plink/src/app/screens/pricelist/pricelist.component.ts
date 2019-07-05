@@ -12,7 +12,7 @@ export class PricelistComponent implements OnInit {
 
   moneys: IMoney[] = [];
   visibleMoney: IMoney[] = [];
-  ACTUALSIZE = 20;
+  actualSize = 20;
   INCREMENT = 20;
   constructor(private cryptoService: CryptoService, private convertService: ConvertService) { }
 
@@ -20,7 +20,7 @@ export class PricelistComponent implements OnInit {
     this.cryptoService.getPrices()
     .subscribe(result => {
       this.moneys = result.prices;
-      this.visibleMoney = this.moneys.slice(0, this.ACTUALSIZE);
+      this.visibleMoney = this.moneys.slice(0, this.actualSize);
     }
     , error => console.log(error));
   }
@@ -30,7 +30,7 @@ export class PricelistComponent implements OnInit {
   }
 
   onScroll() {
-    this.visibleMoney = this.visibleMoney.concat(this.moneys.slice(this.ACTUALSIZE, this.ACTUALSIZE + this.INCREMENT));
-    this.ACTUALSIZE += this.INCREMENT;
+    this.visibleMoney = this.visibleMoney.concat(this.moneys.slice(this.actualSize, this.actualSize + this.INCREMENT));
+    this.actualSize += this.INCREMENT;
   }
 }

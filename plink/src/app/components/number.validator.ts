@@ -1,6 +1,6 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 
-export class NumberValidators {
+export class NumberValidator {
 
   static minimum(min: number): ValidatorFn {
     return (c: AbstractControl): { [key: string]: boolean } | null => {

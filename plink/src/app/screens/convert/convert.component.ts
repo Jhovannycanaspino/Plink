@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { NumberValidators } from 'src/app/components/number.validatos';
+import { NumberValidator } from 'src/app/components/number.validator';
 import { IMoney } from 'src/app/models/IMoney.model';
 import { CryptoService } from 'src/app/services/crypto-service.service';
 import { ConvertService } from 'src/app/services/convert.service';
@@ -19,17 +19,16 @@ export class ConvertComponent implements OnInit {
   moneys: IMoney[] = [];
   constructor(fb: FormBuilder, private cryptoService: CryptoService, private convertService: ConvertService) {
     this.cForm = fb.group({
-      amount: [null, Validators.compose([Validators.required, Validators.min(0), NumberValidators.minimum(1)])],
+      amount: [null, Validators.compose([Validators.required, Validators.min(0), NumberValidator.minimum(1)])],
       from: [null, Validators.required],
       to: [null, Validators.required],
       change: [null]
     });
-
   }
 
   ngOnInit() {
     this.convertService.customMessage.subscribe(result => {
-      this.amountValue = '0';
+      this.amountValue = '1';
       this.from = 'BTC';
       this.to = result;
       this.convert(0, this.from, result);

@@ -1,7 +1,8 @@
 @import 'colors';
 
-body {
+.body {
   background-color: $blue-soft;
+
   &::after {
     background-color: $white;
     background-image: url("src/assets/footer.png");
