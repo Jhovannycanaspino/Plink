@@ -1,10 +1,10 @@
 {
-  "Nombre": "Name",
-  "Precio": "Price",
-  "Criptomoneda": "Criptomoney",
-  "Convertir": "Convert",
-  "Realizar cambio": "Make change",
-  "Seleccione las monedas": "Select your currencies",
-  "REALIZAR CAMBIO": "MAKE CHANGE",
-  "LISTADO DE MONEDAS": "CURRENCY LIST"
+  "name": "Nombre",
+  "price": "Precio",
+  "criptomoney": "Criptomoneda",
+  "convert": "Convertir",
+  "makeChange": "Realizar cambio",
+  "selectCurrencies": "Seleccione las monedas",
+  "makeChangeUppercase": "REALIZAR CAMBIO",
+  "currencyList": "LISTADO DE MONEDAS"
 }

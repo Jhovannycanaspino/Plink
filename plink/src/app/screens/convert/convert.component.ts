@@ -29,9 +29,10 @@ export class ConvertComponent implements OnInit {
 
   ngOnInit() {
     this.convertService.customMessage.subscribe(result => {
-      this.from = result;
-      this.amountValue = '1';
-      this.convert(1, this.from, result);
+      this.amountValue = '0';
+      this.from = 'BTC';
+      this.to = result;
+      this.convert(0, this.from, result);
     });
 
     this.cryptoService.getPrices()
@@ -65,9 +66,7 @@ export class ConvertComponent implements OnInit {
     const amount = this.cForm.get('amount').value;
     this.cForm.get('from').setValue(to);
     this.cForm.get('to').setValue(from);
-    const tonew = this.to;
-    const fromnew = this.from;
-    this.convert(amount, fromnew, tonew);
+    this.convert(amount, this.cForm.get('from').value, this.cForm.get('to').value);
   }
 
   calculate() {

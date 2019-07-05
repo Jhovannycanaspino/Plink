@@ -1,10 +1,21 @@
 @import '~src/styles/colors';
 
+.container {
+  background: $white;
+  border: 1px solid $grey;
+  border-radius: 5px;
+  height: 800px;
+  margin: 100px auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
 ::ng-deep .mat-tab-labels {
-  align-items: center;
-  font-size: 1.5em;
-  height: 140px;
+  align-items: flex-end;
+  font-size: 1.2em;
+  height: 150px;
   justify-content: center;
+  padding: 25px 0;
   width: 100%;
 }
 

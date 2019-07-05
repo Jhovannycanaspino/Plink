@@ -4,7 +4,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 .header-prices {
@@ -28,7 +28,7 @@
 .greenCircle {
   color:$green-soft;
   font-size: 1em;
-  left: 20px;
+  min-width: 25px;
   position: relative;
   &::before {
     background-color: $green-soft;
@@ -36,15 +36,16 @@
     content: '';
     height: 17px;
     position: absolute;
-    right: 30px;
+    right: calc(100% + 10px);
     width: 17px;
+
   }
 }
 
 .redCircle {
   color: $red;
   font-size: 1em;
-  left: 20px;
+  min-width: 25px;
   position: relative;
   &::before {
     background-color: $red;
@@ -52,7 +53,7 @@
     content: '';
     height: 17px;
     position: absolute;
-    right: 30px;
+    right: calc(100% + 10px);
     width: 17px;
   }
 }
@@ -61,7 +62,6 @@
   flex: 1 1 0;
   .title {
     color: $ligth-gray;
-    font-family: 'RooneySans-Regular';
     font-size: 18px;
   }
 }
