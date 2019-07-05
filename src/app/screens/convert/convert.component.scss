@@ -1,0 +1,110 @@
+@import '~src/styles/colors';
+
+.container-convert {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.title {
+  color: $ligth-gray;
+  font-size: 2.0em;
+  letter-spacing: 2px;
+  margin: 10px 0;
+}
+
+.subtitle {
+  color: $gray-soft;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.card-convert {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+  width: 450px;
+  max-width: 100%;
+  
+  .form-input {
+    background: transparent;
+    border: 1px solid $grey;
+    border-radius: 30px;
+    font-size: 1.5em;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+
+    &:disabled {
+      background-color: $gray-soft;
+    }
+  }
+
+  .input-wrapper {
+    position: relative;
+    width: 100%;
+
+    &:not(:last-of-type) {
+      margin-bottom: 30px;
+    }
+
+    &::before {
+      color:$grey;
+      content: "$";
+      font-size: 1.5em;
+      left: 45px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .swap-btn {
+    background: url('src/assets/exchange.png') no-repeat;
+    background-size: 40px 40px;
+    color: $grey;
+    content: "";
+    font-size: 1.5em;
+    height: 40px;
+    position: absolute;
+    left: calc(100% + 20px);
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    width: 40px;
+  }
+
+  .select-wrapper {
+    margin-bottom: 30px;
+    position: relative;
+    width: 100%;
+
+    &::before {
+      background: url('src/assets/down-arrow.png') no-repeat;
+      background-size: 20px 20px;
+      color: $grey;
+      content: "";
+      font-size: 1.5em;
+      height: 20px;
+      position: absolute;
+      right: 45px;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      width: 20px;
+    }
+
+    .price {
+      margin-bottom: 0;
+    }
+
+    .select {
+      text-align-last: center;
+    }
+  }
+}

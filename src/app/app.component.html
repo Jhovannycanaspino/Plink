@@ -1,0 +1,8 @@
+<mat-tab-group class="container" color="primary" [selectedIndex]="tabIndex.value" (selectedIndexChange)="tabIndex.setValue($event)"  #tabGroup>
+    <mat-tab label="{{'makeChangeUppercase' | translate }}">
+      <app-convert></app-convert>
+    </mat-tab>
+    <mat-tab label="{{'currencyList' | translate }}">
+      <app-pricelist class="price-list"></app-pricelist>
+    </mat-tab>
+  </mat-tab-group>

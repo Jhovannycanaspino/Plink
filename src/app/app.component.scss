@@ -1,0 +1,58 @@
+@import '~src/styles/colors';
+
+.container {
+  background: $white;
+  border: 1px solid $grey;
+  border-radius: 5px;
+  height: 800px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.price-list {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  padding: 20px 40px 0;
+}
+
+::ng-deep .mat-tab-labels {
+  align-items: flex-end;
+  font-size: 1.2em;
+  height: 150px;
+  justify-content: center;
+  padding: 25px 0;
+  width: 100%;
+}
+
+::ng-deep .mat-tab-body-content.ng-trigger.ng-trigger-translateTab {
+  overflow: hidden;
+}
+
+::ng-deep .mat-ink-bar {
+  width: 50%;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color:$blue-tab;
+  height: 10px;
+  width: 50%;
+}
+
+::ng-deep .mat-tab-label mat-ripple ng-star-inserted mat-tab-label-active {
+  width: 100%;
+}
+
+::ng-deep .mat-tab-label-active {
+  &>.mat-tab-label-content {
+    color:$blue-tab;
+  }
+}
+
+::ng-deep .mat-tab-label {
+  color: $grey-tab;
+  font-size: 1.1em;
+  font-weight: bold;
+  width: 100%;
+}
